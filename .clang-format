@@ -1,0 +1,26 @@
+BasedOnStyle: Google
+
+AccessModifierOffset: -2
+AlignArrayOfStructures: Left
+AlignConsecutiveMacros:
+    Enabled: true
+AlignEscapedNewlines: LeftWithLastLine
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: false
+BinPackParameters: OnePerLine
+BreakBeforeBinaryOperators: NonAssignment
+ColumnLimit: 120
+IncludeBlocks: Preserve
+IndentWidth: 4
+PackConstructorInitializers: Never
+QualifierAlignment: Left
+SortIncludes:
+    IgnoreCase: true
+SortUsingDeclarations: Lexicographic

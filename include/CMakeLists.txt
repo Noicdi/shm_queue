@@ -1,0 +1,4 @@
+install(DIRECTORY shm_queue
+        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+        FILES_MATCHING PATTERN "*.h"
+)

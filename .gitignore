@@ -1,0 +1,8 @@
+.vscode/
+.vs/
+.idea/
+
+*build*/
+install/
+
+CMakeUserPresets.json

@@ -1,0 +1,101 @@
+Checks: >
+    -*,
+    bugprone-*,
+    clang-analyzer-*,
+    google-*,
+    performance-*,
+    portability-*,
+    -portability-avoid-pragma-once,
+    -llvm-header-guard,
+    readability-identifier-naming
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '^(?!.*(/|^)(third_party|cmake-build-[^/]+)(/|$)).*'
+FormatStyle: file
+
+CheckOptions:
+    # Google C++ style: type names use UpperCamelCase.
+    -   key: readability-identifier-naming.ClassCase
+        value: CamelCase
+    -   key: readability-identifier-naming.StructCase
+        value: CamelCase
+    -   key: readability-identifier-naming.EnumCase
+        value: CamelCase
+    -   key: readability-identifier-naming.TypeAliasCase
+        value: CamelCase
+    -   key: readability-identifier-naming.TypedefCase
+        value: CamelCase
+    -   key: readability-identifier-naming.TypeTemplateParameterCase
+        value: CamelCase
+
+    # Google C++ style: ordinary functions use UpperCamelCase.
+    -   key: readability-identifier-naming.FunctionCase
+        value: CamelCase
+    -   key: readability-identifier-naming.MethodCase
+        value: CamelCase
+
+    # Google C++ style: variables and parameters use snake_case.
+    -   key: readability-identifier-naming.VariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.ParameterCase
+        value: lower_case
+    -   key: readability-identifier-naming.LocalVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.GlobalVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.GlobalVariablePrefix
+        value: g_
+
+    # Google C++ style: class data members use snake_case with a trailing underscore.
+    -   key: readability-identifier-naming.ClassMemberCase
+        value: lower_case
+    -   key: readability-identifier-naming.ClassMemberSuffix
+        value: _
+
+    # Google C++ style: struct data members use snake_case without a trailing underscore.
+    -   key: readability-identifier-naming.StructMemberCase
+        value: lower_case
+
+    # Google C++ style: local const variables that are not true constants use snake_case.
+    -   key: readability-identifier-naming.LocalConstantCase
+        value: lower_case
+
+    # Google C++ style: local constexpr variables may use kUpperCamelCase.
+    -   key: readability-identifier-naming.LocalConstexprVariableCase
+        value: CamelCase
+    -   key: readability-identifier-naming.LocalConstexprVariablePrefix
+        value: k
+
+    # Google C++ style: constants with static storage duration use kUpperCamelCase.
+    -   key: readability-identifier-naming.ClassConstantCase
+        value: CamelCase
+    -   key: readability-identifier-naming.ClassConstantPrefix
+        value: k
+    -   key: readability-identifier-naming.ClassConstexprCase
+        value: CamelCase
+    -   key: readability-identifier-naming.ClassConstexprPrefix
+        value: k
+    -   key: readability-identifier-naming.StaticConstantCase
+        value: CamelCase
+    -   key: readability-identifier-naming.StaticConstantPrefix
+        value: k
+    -   key: readability-identifier-naming.StaticConstexprVariableCase
+        value: CamelCase
+    -   key: readability-identifier-naming.StaticConstexprVariablePrefix
+        value: k
+    -   key: readability-identifier-naming.GlobalConstantCase
+        value: CamelCase
+    -   key: readability-identifier-naming.GlobalConstantPrefix
+        value: k
+    -   key: readability-identifier-naming.GlobalConstexprVariableCase
+        value: CamelCase
+    -   key: readability-identifier-naming.GlobalConstexprVariablePrefix
+        value: k
+
+    # Google C++ style: macros use UPPER_SNAKE_CASE.
+    -   key: readability-identifier-naming.MacroDefinitionCase
+        value: UPPER_CASE
+
+    # Google C++ style: namespaces are lower_case.
+    -   key: readability-identifier-naming.NamespaceCase
+        value: lower_case
