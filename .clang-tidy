@@ -1,12 +1,30 @@
 Checks: >
     -*,
-    bugprone-*,
+
     clang-analyzer-*,
-    google-*,
+    bugprone-*,
     performance-*,
     portability-*,
+    concurrency-*,
+    cppcoreguidelines-*,
+    modernize-*,
+    readability-*,
+
     -portability-avoid-pragma-once,
-    -llvm-header-guard,
+
+    -cppcoreguidelines-avoid-magic-numbers,
+    -cppcoreguidelines-owning-memory,
+    -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+    -cppcoreguidelines-pro-bounds-constant-array-index,
+    -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
+
+    -modernize-use-trailing-return-type,
+    -modernize-avoid-c-arrays,
+
+    -readability-magic-numbers,
+    -readability-function-cognitive-complexity,
+    -readability-identifier-length,
+
     readability-identifier-naming
 
 WarningsAsErrors: ''

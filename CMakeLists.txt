@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.24)
 
 project(ShmQueue
+        DESCRIPTION "A message queue implemented based on shared memory ringbuffer"
         VERSION 0.0.1
-        LANGUAGES CXX
 )
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
@@ -28,6 +28,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(include)
 add_subdirectory(src)
+add_subdirectory(tests)
 
 set(CPACK_GENERATOR "TGZ")
 include(CPack)

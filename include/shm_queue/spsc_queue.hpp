@@ -12,7 +12,7 @@ namespace shm_queue {
 template <typename T>
 class SpscQueue {
   public:
-    static_assert(std::is_trivially_copyable_v<T>, "SpscQueue<T> requires T to be trivially copyable");
+    static_assert(std::is_trivially_copyable<T>::value, "SpscQueue<T> requires T to be trivially copyable");
 
     SpscQueue() = default;
     SpscQueue(const SpscQueue&) = delete;
