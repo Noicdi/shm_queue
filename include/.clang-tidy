@@ -1,0 +1,86 @@
+InheritParentConfig: true
+
+CheckOptions:
+    # Public C/C++ API: use Unix/POSIX/STL-style snake_case names.
+
+    # Types exposed by the public API use snake_case.
+    -   key: readability-identifier-naming.ClassCase
+        value: lower_case
+    -   key: readability-identifier-naming.StructCase
+        value: lower_case
+    -   key: readability-identifier-naming.EnumCase
+        value: lower_case
+    -   key: readability-identifier-naming.TypeAliasCase
+        value: lower_case
+    -   key: readability-identifier-naming.TypedefCase
+        value: lower_case
+
+    # Keep template type parameters conventional, e.g. T, ElementType.
+    -   key: readability-identifier-naming.TypeTemplateParameterCase
+        value: CamelCase
+
+    # Public functions and methods use snake_case.
+    -   key: readability-identifier-naming.FunctionCase
+        value: lower_case
+    -   key: readability-identifier-naming.MethodCase
+        value: lower_case
+
+    # Variables and parameters remain snake_case.
+    -   key: readability-identifier-naming.VariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.ParameterCase
+        value: lower_case
+    -   key: readability-identifier-naming.LocalVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.GlobalVariableCase
+        value: lower_case
+
+    # Public C++ class members follow STL-style snake_case without the
+    # implementation-only Google trailing underscore requirement.
+    -   key: readability-identifier-naming.ClassMemberCase
+        value: lower_case
+    -   key: readability-identifier-naming.ClassMemberSuffix
+        value: ''
+    -   key: readability-identifier-naming.StructMemberCase
+        value: lower_case
+
+    # Public constants use snake_case; C macros / enum constants stay uppercase.
+    -   key: readability-identifier-naming.LocalConstantCase
+        value: lower_case
+    -   key: readability-identifier-naming.LocalConstexprVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.LocalConstexprVariablePrefix
+        value: ''
+    -   key: readability-identifier-naming.ClassConstantCase
+        value: lower_case
+    -   key: readability-identifier-naming.ClassConstantPrefix
+        value: ''
+    -   key: readability-identifier-naming.ClassConstexprCase
+        value: lower_case
+    -   key: readability-identifier-naming.ClassConstexprPrefix
+        value: ''
+    -   key: readability-identifier-naming.StaticConstantCase
+        value: lower_case
+    -   key: readability-identifier-naming.StaticConstantPrefix
+        value: ''
+    -   key: readability-identifier-naming.StaticConstexprVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.StaticConstexprVariablePrefix
+        value: ''
+    -   key: readability-identifier-naming.GlobalConstantCase
+        value: lower_case
+    -   key: readability-identifier-naming.GlobalConstantPrefix
+        value: ''
+    -   key: readability-identifier-naming.GlobalConstexprVariableCase
+        value: lower_case
+    -   key: readability-identifier-naming.GlobalConstexprVariablePrefix
+        value: ''
+
+    -   key: readability-identifier-naming.EnumConstantCase
+        value: UPPER_CASE
+    -   key: readability-identifier-naming.MacroDefinitionCase
+        value: UPPER_CASE
+
+    # Namespaces use snake_case.
+    -   key: readability-identifier-naming.NamespaceCase
+        value: lower_case

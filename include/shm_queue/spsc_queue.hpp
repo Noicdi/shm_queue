@@ -10,20 +10,20 @@
 namespace shm_queue {
 
 template <typename T>
-class SpscQueue {
+class spsc_queue {
   public:
-    static_assert(std::is_trivially_copyable<T>::value, "SpscQueue<T> requires T to be trivially copyable");
+    static_assert(std::is_trivially_copyable<T>::value, "shm_queue::spsc_queue<T> requires T to be trivially copyable");
 
-    SpscQueue() = default;
-    SpscQueue(const SpscQueue&) = delete;
-    SpscQueue& operator=(const SpscQueue&) = delete;
+    spsc_queue() = default;
+    spsc_queue(const spsc_queue&) = delete;
+    spsc_queue& operator=(const spsc_queue&) = delete;
 
-    SpscQueue(SpscQueue&& other) noexcept
+    spsc_queue(spsc_queue&& other) noexcept
         : queue_(other.queue_) {
         other.queue_ = nullptr;
     }
 
-    SpscQueue& operator=(SpscQueue&& other) noexcept {
+    spsc_queue& operator=(spsc_queue&& other) noexcept {
         if (this != &other) {
             if (queue_ != nullptr) {
                 shm_queue_spsc_close(queue_);
@@ -36,14 +36,14 @@ class SpscQueue {
         return *this;
     }
 
-    ~SpscQueue() {
+    ~spsc_queue() {
         if (queue_ != nullptr) {
             shm_queue_spsc_close(queue_);
         }
     }
 
     // producer
-    bool Create(const char* name, std::size_t capacity) {
+    bool create(const char* name, std::size_t capacity) {
         if (queue_ != nullptr) {
             return false;
         }
@@ -52,19 +52,19 @@ class SpscQueue {
         return queue_ != nullptr;
     }
     // copy
-    bool Push(const T& data) {
+    bool push(const T& data) {
         return shm_queue_spsc_push(queue_, &data) == 0;
     }
     // zero-copy
-    T* AcquireWrite() {
+    T* acquire_write() {
         return static_cast<T*>(shm_queue_spsc_acquire_write(queue_));
     }
-    bool CommitWrite() const {
+    bool commit_write() const {
         return shm_queue_spsc_commit_write(queue_) == 0;
     }
 
     // consumer
-    bool Attach(const char* name) {
+    bool attach(const char* name) {
         if (queue_ != nullptr) {
             return false;
         }
@@ -73,19 +73,19 @@ class SpscQueue {
         return queue_ != nullptr;
     }
     // copy
-    bool Pop(T& data) {
+    bool pop(T& data) {
         return shm_queue_spsc_pop(queue_, &data) == 0;
     }
     // zero-copy
-    const T* AcquireRead() {
+    const T* acquire_read() {
         return static_cast<const T*>(shm_queue_spsc_acquire_read(queue_));
     }
-    bool ReleaseRead() const {
+    bool release_read() const {
         return shm_queue_spsc_release_read(queue_) == 0;
     }
 
     // common
-    static bool Destroy(const char* name) {
+    static bool destroy(const char* name) {
         return shm_queue_spsc_destroy(name) == 0;
     }
 
