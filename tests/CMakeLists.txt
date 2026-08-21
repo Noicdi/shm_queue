@@ -1,1 +1,2 @@
 add_subdirectory(public_headers_check)
+add_subdirectory(shm_test)
