@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.24)
 
 project(ShmQueue
-        DESCRIPTION "A message queue implemented based on shared memory ringbuffer"
+        DESCRIPTION "A message queue implemented based on shared memory ring buffer"
         VERSION 0.0.1
 )
 
 if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     message(FATAL_ERROR "Please specify a build type using -DCMAKE_BUILD_TYPE=Debug/Release/RelWithDebInfo/MinSizeRel")
 endif ()
+
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_program(CCACHE_PROGRAM ccache)
 if (CCACHE_PROGRAM)
@@ -21,14 +24,15 @@ include(Sanitizers)
 include(SplitDebugSymbols)
 include(Version)
 
-include(GNUInstallDirs)
-
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-add_subdirectory(include)
-add_subdirectory(src)
-add_subdirectory(tests)
+include(CTest)
 
 set(CPACK_GENERATOR "TGZ")
 include(CPack)
+include(GNUInstallDirs)
+
+add_subdirectory(include)
+add_subdirectory(src)
+add_subdirectory(third_party)
+if (BUILD_TESTING)
+    add_subdirectory(tests)
+endif (BUILD_TESTING)
